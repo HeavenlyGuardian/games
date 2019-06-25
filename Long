@@ -2,14 +2,11 @@
 #include <clocale>
 #include <string>
 #include <vector>
+#include <cstdlib>
 
 using namespace std;
 
-///////////////////////////////////////////////// GLOBAL VARIABLES
 
-
-
-///////////////////////////////////////////////// LONG CLASS
 class Long
 {
 private:
@@ -66,7 +63,7 @@ public:
 
 	void null()
 	{
-		v.insert(v.cbegin(), 0);
+		v.insert(v.begin(), 0);
 	}
 
 	void operator=(Long l)
@@ -244,10 +241,9 @@ public:
 	}
 };
 
-///////////////////////////////////////////////// MAIN FUNCTION
 int main()
 {
-	setlocale(0, "");
+	setlocale(LC_ALL, "");
 
 	Long l, l1, l0;
 
@@ -257,7 +253,7 @@ int main()
 
 	l.input();
 
-	cout << endl << "Введите оператор:" << endl;
+	cout << endl << "Введите знак операции:" << endl;
 
 	cin >> op;
 
@@ -273,12 +269,12 @@ int main()
 		l0 = l * l1;
 	else
 	{
-		cout << endl << "Такого оператора нет" << endl;
+		cout << endl << "Такой операции нет" << endl;
 
 		return 0;
 	}
 
-	cout << endl << "Результат:" << endl;
+	cout << endl << "Ответ:" << endl;
 
 	l0.output();
 }
