@@ -2,7 +2,6 @@
 #include <string.h>
 #include <ncurses.h>
 
-///////////////////////////////////////////////// MAP
 const int WIDHT = 29, HEIGHT = 20;
 
 const char MAP[20][30] =
@@ -31,7 +30,6 @@ const char MAP[20][30] =
 
 char map[20][30];
 
-///////////////////////////////////////////////// GLOBAL VARIABLES
 bool isWork;
 bool isVictory;
 bool isDead;
@@ -47,13 +45,11 @@ int boxes[5][2];
 
 int fin[5][2];
 
-///////////////////////////////////////////////// FUNCTIONS PROTOTYPES
 void initialization();
 void updatePlayer();
 void checkBoxes();
 void updateKey();
 
-///////////////////////////////////////////////// MAIN FUNCTION
 int main()
 {
 	initscr();
@@ -63,7 +59,6 @@ int main()
 
 	initialization();
 
-	///////////////////////////////////////////// MAIN LOOP
 	while (isWork)
 	{
 		memcpy(map, MAP, sizeof(map));
@@ -79,10 +74,8 @@ int main()
 
 		updatePlayer();
 
-		///////////////////////////////////// CLEAR
 		clear();
 
-		///////////////////////////////////// OUTPUT
 		puts("1 - Restart	2 - Exit\n");
 
 		isVictory = true;
@@ -110,12 +103,11 @@ int main()
 
 			printw("\n");
 		}
-	}
-	/////////////////////////////////////////////	
+	}	
 
 	endwin();
 }
-///////////////////////////////////////////////// FUNCTIONS
+
 void initialization()
 {
 	isWork = true;
@@ -145,7 +137,6 @@ void initialization()
 
 	map[y][x] = '$';
 
-	///////////////////////////////////////////// CLEAR
 	clear();
 
 	puts("1 - Restart	2 - Exit\n");
