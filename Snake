@@ -4,7 +4,6 @@
 #include <string.h>
 #include <ncurses.h>
 
-///////////////////////////////////////////////// MAP
 const int WIDHT = 29, HEIGHT = 20;
 
 const char MAP[20][30] =
@@ -33,7 +32,6 @@ const char MAP[20][30] =
 
 char map[20][30];
 
-///////////////////////////////////////////////// GLOBAL VARIABLES
 bool isWork;
 
 struct position
@@ -52,12 +50,10 @@ int sizeApple;
 struct position p[27 * 18];
 struct position apple;
 
-///////////////////////////////////////////////// FUNCTIONS PROTOTYPES
 void initialization();
 void updatePlayer();
 void updateKey();
 
-///////////////////////////////////////////////// MAIN FUNCTION
 int main()
 {
 	initscr();
@@ -67,7 +63,6 @@ int main()
 
 	initialization();
 
-	///////////////////////////////////////////// MAIN LOOP
 	while (isWork)
 	{
 		memcpy(map, MAP, sizeof(map));
@@ -96,10 +91,8 @@ int main()
 		for (int i = 1; i < size; i++)
 			map[p[i].y][p[i].x] = 'o';
 
-		///////////////////////////////////// CLEAR
 		clear();
 
-		///////////////////////////////////// OUTPUT
 
 		for (int i = 0; i < HEIGHT; i++)
 		{
@@ -110,12 +103,10 @@ int main()
 		}
 
 		usleep(200000);
-	}
-	/////////////////////////////////////////////	
+	}	
 
 	endwin();
 }
-///////////////////////////////////////////////// FUNCTIONS
 void initialization()
 {
 	isWork = true;
@@ -135,12 +126,10 @@ void initialization()
 
 	apple.x = apple.y = -1;
 
-	/////////////////////////////////////////////
 	memcpy(map, MAP, sizeof(map));
 
 	map[p[0].y][p[0].x] = 'O';
 
-	///////////////////////////////////////////// CLEAR
 	clear();
 
 	for (int i = 0; i < HEIGHT; i++)
